@@ -17,6 +17,7 @@ class I2CMuxDevice(I2CDevice):
     def get_mux_address(self):
         pass
 
+# I needed my SHT20 on the muxer - you might not
 class SHT20(I2CMuxDevice):
     TEMPERATURE_NO_HOLD = 0xF3
     HUMIDITY_NO_HOLD = 0xF5
@@ -58,6 +59,7 @@ class TCA9548A(I2CDevice):
     CHANNEL_6 = 0x40
     CHANNEL_7 = 0x80
 
+    # I used these bcm pins for mux addressing, yours might be different
     def __init__(self, address, name, bus=1, A0_pin=13, A1_pin=19, A2_pin=26):
         self.address = address
         self.bus = bus
